@@ -35,5 +35,22 @@
     "@types/redux": "^3.6.0",
     "@types/redux-actions": "^2.2.2",
     "@types/seamless-immutable": "^7.1.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/containers/**/*.{ts,tsx}",
+      "**/src/components/**/*.{ts,tsx}",
+      "**/src/redux/**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }
