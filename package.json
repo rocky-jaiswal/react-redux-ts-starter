@@ -23,6 +23,7 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.5",
     "@types/jest": "^21.1.5",
     "@types/node": "^8.0.47",
     "@types/react": "^16.0.20",
@@ -34,7 +35,9 @@
     "@types/react-router-redux": "^5.0.7",
     "@types/redux": "^3.6.0",
     "@types/redux-actions": "^2.2.2",
-    "@types/seamless-immutable": "^7.1.1"
+    "@types/seamless-immutable": "^7.1.1",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
