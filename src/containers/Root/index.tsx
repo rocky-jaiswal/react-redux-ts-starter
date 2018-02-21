@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
-import GameArea from '../../components/GameArea';
 import { loadInitialData } from '../../redux/app/actions';
 
 interface Props {
@@ -39,7 +38,6 @@ export class Root extends React.Component<Props & DispatchProps> {
     return (
       <div className="container">
         <h1><FormattedMessage id="app.welcome" /></h1>
-        <GameArea width={80} height={80} />
       </div>
     );
   }

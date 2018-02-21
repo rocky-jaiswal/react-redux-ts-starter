@@ -1,3 +1,4 @@
 export default {
-  'app.welcome': 'Welcome'
+  'app.welcome': 'Welcome',
+  'app.about': 'About'
 };

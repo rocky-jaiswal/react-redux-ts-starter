@@ -6,6 +6,7 @@ import { Router } from 'react-router-dom';
 
 import { App } from './containers/App';
 import { configureStore } from './store';
+import registerServiceWorker from './registerServiceWorker';
 
 import './styles/variables.css';
 import './styles/modifiers.css';
@@ -23,3 +24,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
+
+registerServiceWorker();
