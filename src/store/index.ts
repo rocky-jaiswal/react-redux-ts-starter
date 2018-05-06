@@ -27,7 +27,8 @@ export function configureStore(history: History): Store<RootStateType> {
       // tslint:disable-next-line:no-string-literal
       window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] : compose;
 
-  const store = createStore<RootStateType>(
+  // tslint:disable-next-line:no-any
+  const store = createStore<RootStateType, {type: any}, {}, {}>(
     createReducer(),
     reduxInitialState,
     composeEnhancers(...enhancers)

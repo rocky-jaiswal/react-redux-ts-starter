@@ -1,4 +1,4 @@
-import { Dispatch as ReduxDispatch } from 'redux';
+import { Dispatch as ReduxDispatch, Action } from 'redux';
 
 interface AppState {
   loading: boolean;
@@ -13,11 +13,4 @@ interface RootState {
 
 export type RootStateType = RootState;
 
-interface Action<T> {
-  type: string;
-  payload?: T;
-}
-
-export type ActionType<T> = Action<T>;
-
-export type Dispatch = ReduxDispatch<RootState>;
+export type Dispatch = ReduxDispatch<Action>;
