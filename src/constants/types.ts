@@ -1,5 +1,4 @@
 import { Dispatch as ReduxDispatch, Action } from 'redux';
-import { LocaleEnum } from './enums';
 
 interface AppState {
   loading: boolean;

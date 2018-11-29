@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 
 import { Dispatch, RootStateType } from '../../constants/types';
-import { LocaleEnum } from '../../constants/enums';
 import { translationMessages } from '../../i18n/';
 
 interface Props {

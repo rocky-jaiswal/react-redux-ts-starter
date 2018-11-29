@@ -7,7 +7,7 @@ import 'normalize.css';
 
 import { App } from './containers/App';
 import { configureStore } from './store';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 
 import './styles/variables.css';
 import './styles/modifiers.css';
@@ -26,4 +26,4 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 
-registerServiceWorker();
+serviceWorker.register();
