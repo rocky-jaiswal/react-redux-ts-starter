@@ -5,11 +5,11 @@ import routes from '../../routes';
 import LanguageProvider from '../LanguageProvider';
 import { LocaleEnum } from '../../constants/enums';
 
-export class App extends React.Component<{}, never> {
+export class App extends React.Component<{}> {
 
   render() {
     return (
-      <LanguageProvider locale={LocaleEnum.en}>
+      <LanguageProvider>
         <Switch>
           {Object.keys(routes).map((route) => {
             return <Route {...routes[route]} key={routes[route].sequence} />;

@@ -4,33 +4,39 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
-import { loadInitialData } from '../../redux/app/actions';
+import { loadInitialData, incrementClickCount } from '../../redux/app/actions';
+import { Link } from 'react-router-dom';
 
 interface Props {
   loading: boolean;
+  clickCount: number;
 }
 
 interface DispatchProps {
   changeRoute(route: string): {};
   loadInitialData(): {};
+  incrementClickCount(): {};
 }
 
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
   return {
-    loading: state.app.loading
+    loading: state.app.loading,
+    clickCount: state.app.clickCount
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     loadInitialData: () => dispatch(loadInitialData()),
-    changeRoute: (payload: string) => dispatch(push(payload))
+    changeRoute: (payload: string) => dispatch(push(payload)),
+    incrementClickCount: () => dispatch(incrementClickCount())
   };
 };
 
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
+    // Uncomment to see sample XHR call
     // this.props.loadInitialData();
   }
 
@@ -38,6 +44,9 @@ export class Root extends React.Component<Props & DispatchProps> {
     return (
       <div className="container">
         <h1><FormattedMessage id="app.welcome" /></h1>
+        <Link to="/about/">Go to About</Link>
+        <h3>{this.props.clickCount}</h3>
+        <button onClick={this.props.incrementClickCount}>Click!</button>
       </div>
     );
   }

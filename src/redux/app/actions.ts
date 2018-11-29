@@ -3,6 +3,8 @@ export const LOAD_INITIAL_DATA_INPROGRESS = 'app/LOAD_INITIAL_DATA_INPROGRESS';
 export const LOAD_INITIAL_DATA_SUCCESS = 'app/LOAD_INITIAL_DATA_SUCCESS';
 export const LOAD_INITIAL_DATA_FAILED = 'app/LOAD_INITIAL_DATA_FAILED';
 
+export const INC_CLICK_COUNT = 0;
+
 export const loadInitialData = () => {
   return {
     type: LOAD_INITIAL_DATA
@@ -24,5 +26,11 @@ export const loadInitialDataSuccess = () => {
 export const loadInitialDataFailed = () => {
   return {
     type: LOAD_INITIAL_DATA_FAILED
+  };
+};
+
+export const incrementClickCount = () => {
+  return {
+    type: INC_CLICK_COUNT
   };
 };

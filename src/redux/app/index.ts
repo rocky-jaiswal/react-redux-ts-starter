@@ -1,11 +1,13 @@
-import * as Immutable from 'seamless-immutable';
+import Immutable from 'seamless-immutable';
 import { Action } from 'redux';
 
 import { AppStateType } from '../../constants/types';
+import { INC_CLICK_COUNT } from './actions';
 
 const istate: AppStateType = {
   locale: 'en',
-  loading: false
+  loading: false,
+  clickCount: 0
 };
 
 export const initialState = Immutable.from(istate);
@@ -16,6 +18,9 @@ const appReducer = (state = initialState, action: Action<any>): AppStateType => 
 
     default:
       return state;
+
+    case INC_CLICK_COUNT:
+      return state.set('clickCount', state.clickCount + 1);
   }
 };
 

@@ -1,6 +1,7 @@
 import { History } from 'history';
 import { routerMiddleware } from 'react-router-redux';
-import { applyMiddleware, compose, createStore, Store } from 'redux';
+import { applyMiddleware, createStore, Store } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
 import { RootStateType } from '../constants/types';
@@ -16,22 +17,11 @@ export function configureStore(history: History): Store<RootStateType> {
     routerMiddleware(history)
   ];
 
-  const enhancers = [
-    applyMiddleware(...middlewares)
-  ];
-
-  const composeEnhancers =
-    process.env.NODE_ENV !== 'production' &&
-      // tslint:disable-next-line:no-string-literal
-      window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] ?
-      // tslint:disable-next-line:no-string-literal
-      window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] : compose;
-
   // tslint:disable-next-line:no-any
   const store = createStore<RootStateType, {type: any}, {}, {}>(
     createReducer(),
     reduxInitialState,
-    composeEnhancers(...enhancers)
+    composeWithDevTools(applyMiddleware(...middlewares))
   );
 
   allSagas.map((saga) => sagaMiddleware.run(saga));

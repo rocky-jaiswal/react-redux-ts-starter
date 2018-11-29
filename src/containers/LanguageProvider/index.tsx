@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { RootStateType } from '../../constants/types';
 import { IntlProvider } from 'react-intl';
 
+import { Dispatch, RootStateType } from '../../constants/types';
 import { LocaleEnum } from '../../constants/enums';
 import { translationMessages } from '../../i18n/';
 
-type Props = {
-  locale: LocaleEnum;
+interface Props {
+  locale: string;
 };
 
-class LanguageProvider extends React.Component<Props, {}> {
+class LanguageProvider extends React.Component<Props> {
 
   render() {
     return (
@@ -26,13 +26,12 @@ class LanguageProvider extends React.Component<Props, {}> {
 
 }
 
-// Connected Type
-type OwnProps = Pick<Props, 'locale'>;
-
-const mapStateToProps = (rootState: RootStateType, ownProps: OwnProps) => ({
+const mapStateToProps = (rootState: RootStateType, _ownProps: {}): Props => ({
   locale: rootState.app.locale
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (_dispatch: Dispatch): {} => {
+  return {};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageProvider);
