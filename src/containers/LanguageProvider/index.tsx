@@ -10,6 +10,14 @@ interface Props {
   locale: string;
 };
 
+const mapStateToProps = (rootState: RootStateType, _ownProps: {}): Props => ({
+  locale: rootState.app.locale
+});
+
+const mapDispatchToProps = (_dispatch: Dispatch): {} => {
+  return {};
+};
+
 class LanguageProvider extends React.Component<Props> {
 
   render() {
@@ -25,13 +33,5 @@ class LanguageProvider extends React.Component<Props> {
   }
 
 }
-
-const mapStateToProps = (rootState: RootStateType, _ownProps: {}): Props => ({
-  locale: rootState.app.locale
-});
-
-const mapDispatchToProps = (_dispatch: Dispatch): {} => {
-  return {};
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageProvider);

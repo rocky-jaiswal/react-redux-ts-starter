@@ -19,7 +19,7 @@ interface DispatchProps {
   incrementClickCount(): {};
 }
 
-const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
+const mapStateToProps = (state: RootStateType, _ownProps: {}): Props => {
   return {
     loading: state.app.loading,
     clickCount: state.app.clickCount

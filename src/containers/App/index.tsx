@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router';
 
 import routes from '../../routes';
 import LanguageProvider from '../LanguageProvider';
-import { LocaleEnum } from '../../constants/enums';
 
 export class App extends React.Component<{}> {
 
