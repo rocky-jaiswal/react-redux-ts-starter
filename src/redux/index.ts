@@ -1,5 +1,5 @@
-import { combineReducers, Reducer } from 'redux';
-import { ActionType, RootStateType } from '../constants/types';
+import { combineReducers, Reducer, Action } from 'redux';
+import { RootStateType } from '../constants/types';
 
 import appReducer from './app/';
 
@@ -14,7 +14,7 @@ export function createReducer(): Reducer<RootStateType> {
     app: appReducer
   });
 
-  const rootReducer = (state: RootStateType, action: ActionType<{}>): RootStateType => {
+  const rootReducer = (state: RootStateType, action: Action<{}>): RootStateType => {
     // if (action.type === LOGOUT) {
     //   sessionStorage.clear();
     //   state = reduxInitialState;
