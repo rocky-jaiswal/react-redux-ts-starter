@@ -1,0 +1,18 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}

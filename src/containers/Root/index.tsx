@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 
 import { Dispatch, RootStateType } from '../../constants/types';
 import { loadInitialData, incrementClickCount } from '../../redux/app/actions';
+import { withWrapper } from '../MainHoc';
 import Dummy from '../../components/Dummy';
+
+import styles from './styles.module.scss';
 
 interface Props {
   loading: boolean;
@@ -43,7 +46,7 @@ export class Root extends React.Component<Props & DispatchProps> {
 
   render() {
     return (
-      <div className="container">
+      <div className={styles.container}>
         <h1><FormattedMessage id="app.welcome" /></h1>
         <Link to="/about/">Go to About</Link>
         <Dummy color="#543421" />
@@ -55,4 +58,4 @@ export class Root extends React.Component<Props & DispatchProps> {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Root);
+export default withWrapper(connect(mapStateToProps, mapDispatchToProps)(Root));

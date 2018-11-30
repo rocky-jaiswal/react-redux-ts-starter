@@ -12,12 +12,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve",
     "noUnusedLocals": true,
-    "alwaysStrict": false,
-    "strictFunctionTypes": false,
-    "strictPropertyInitialization": false
+    "noEmit": true,
+    "jsx": "preserve"
   },
   "include": [
     "src"

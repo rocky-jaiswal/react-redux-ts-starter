@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.footer {
+  background-color: #00abc9;
+  color: $main-white;
+  padding: 10px;
+
+  a {
+    color: $main-white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

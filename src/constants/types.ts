@@ -1,15 +1,16 @@
 import { Dispatch as ReduxDispatch, Action } from 'redux';
+import { Immutable } from 'seamless-immutable';
 
-interface AppState {
+export interface AppState {
   loading: boolean;
   locale: string;
   clickCount: number;
 }
 
-export type AppStateType = AppState;
+export type AppStateType = Immutable<AppState>;
 
 interface RootState {
-  app: AppState;
+  app: AppStateType;
 }
 
 export type RootStateType = RootState;

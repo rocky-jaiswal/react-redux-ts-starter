@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
+import { withWrapper } from '../MainHoc';
 
 interface Props {
   loading: boolean;
@@ -32,4 +33,4 @@ export class About extends React.Component<Props & DispatchProps> {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default withWrapper(connect(mapStateToProps, mapDispatchToProps)(About));

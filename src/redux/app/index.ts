@@ -1,10 +1,10 @@
 import Immutable from 'seamless-immutable';
 import { Action } from 'redux';
 
-import { AppStateType } from '../../constants/types';
+import { AppStateType, AppState } from '../../constants/types';
 import { INC_CLICK_COUNT } from './actions';
 
-const istate: AppStateType = {
+export const istate: AppState = {
   locale: 'en',
   loading: false,
   clickCount: 0

@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+
+.header {
+  background-color: $main-brand;
+  color: $main-white;
+  padding: $hspace;
+
+  a {
+    color: $main-white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

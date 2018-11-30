@@ -1,9 +1,11 @@
+@import '../../styles/variables';
+
 .dummy_area {
   width: 200px;
   height: 200px;
-  border: 1px solid var(--main-gray);
+  border: 1px solid $main-gray;
 
   span {
-    color: red;
+    color: $error-red;
   }
 }
