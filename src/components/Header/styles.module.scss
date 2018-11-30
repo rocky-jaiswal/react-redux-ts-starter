@@ -2,6 +2,8 @@
 
 
 .header {
+  display: flex;
+  flex-direction: row;
   background-color: $main-brand;
   color: $main-white;
   padding: $hspace;
@@ -9,6 +11,7 @@
   a {
     color: $main-white;
     text-decoration: none;
+    margin-right: $hspace;
   }
 
   a:hover {

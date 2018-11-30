@@ -2,7 +2,6 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import { Link } from 'react-router-dom';
 
 import { Dispatch, RootStateType } from '../../constants/types';
 import { loadInitialData, incrementClickCount } from '../../redux/app/actions';
@@ -48,7 +47,6 @@ export class Root extends React.Component<Props & DispatchProps> {
     return (
       <div className={styles.container}>
         <h1><FormattedMessage id="app.welcome" /></h1>
-        <Link to="/about/">Go to About</Link>
         <Dummy color="#543421" />
         <h3>{this.props.clickCount}</h3>
         <button onClick={this.props.incrementClickCount}>Click!</button>

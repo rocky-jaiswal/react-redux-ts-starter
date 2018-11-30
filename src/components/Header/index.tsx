@@ -7,6 +7,7 @@ const Header = (_props: {}) => {
   return (
     <div className={styles.header}>
       <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
     </div>
   );
 };
