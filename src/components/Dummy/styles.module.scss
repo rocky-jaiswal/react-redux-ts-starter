@@ -3,9 +3,9 @@
 .dummy_area {
   width: 200px;
   height: 200px;
-  border: 1px solid $main-gray;
+  border: 1px solid $border-gray;
 
   span {
-    color: $error-red;
+    color: #E8E8E8;
   }
 }

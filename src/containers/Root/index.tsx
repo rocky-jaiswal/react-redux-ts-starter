@@ -47,7 +47,7 @@ export class Root extends React.Component<Props & DispatchProps> {
     return (
       <div className={styles.container}>
         <h1><FormattedMessage id="app.welcome" /></h1>
-        <Dummy color="#543421" />
+        <Dummy color="#96939B" />
         <h3>{this.props.clickCount}</h3>
         <button onClick={this.props.incrementClickCount}>Click!</button>
       </div>
