@@ -13,6 +13,11 @@ interface RootState {
   app: AppStateType;
 }
 
+export type ActionType<T> = {
+  type: string;
+  payload?: T;
+}
+
 export type RootStateType = RootState;
 
 export type Dispatch = ReduxDispatch<Action>;

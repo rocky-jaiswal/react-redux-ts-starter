@@ -1,7 +1,6 @@
 import Immutable from 'seamless-immutable';
-import { Action } from 'redux';
 
-import { AppStateType, AppState } from '../../constants/types';
+import { AppStateType, AppState, ActionType } from '../../constants/types';
 import { INC_CLICK_COUNT } from './actions';
 
 export const istate: AppState = {
@@ -13,7 +12,7 @@ export const istate: AppState = {
 export const initialState = Immutable.from(istate);
 
 // tslint:disable-next-line:no-any
-const appReducer = (state = initialState, action: Action<any>): AppStateType => {
+const appReducer = (state = initialState, action: ActionType<any>): AppStateType => {
   switch (action.type) {
 
     default:
