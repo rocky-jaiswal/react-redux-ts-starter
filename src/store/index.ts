@@ -1,5 +1,4 @@
-import { History } from 'history';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router';
 import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
@@ -10,7 +9,8 @@ import allSagas from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export function configureStore(history: History): Store<RootStateType> {
+// tslint:disable-next-line:no-any
+export function configureStore(history: any): Store<RootStateType> {
 
   const middlewares = [
     sagaMiddleware,
@@ -19,7 +19,7 @@ export function configureStore(history: History): Store<RootStateType> {
 
   // tslint:disable-next-line:no-any
   const store = createStore<RootStateType, {type: any}, {}, {}>(
-    createReducer(),
+    createReducer(history),
     reduxInitialState,
     composeWithDevTools(applyMiddleware(...middlewares))
   );

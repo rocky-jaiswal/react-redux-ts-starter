@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 
 import { Dispatch, RootStateType } from '../../constants/types';
 import { loadInitialData, incrementClickCount } from '../../redux/app/actions';
