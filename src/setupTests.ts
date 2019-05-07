@@ -1,7 +1,5 @@
-import 'raf/polyfill';
-
-const Enzyme = require('enzyme');
-const EnzymeAdapter = require('enzyme-adapter-react-16');
-
-// Setup enzyme's react adapter
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+// react-testing-library renders your components to document.body,
+// this will ensure they're removed after each test.
+import 'react-testing-library/cleanup-after-each';
+// this adds jest-dom's custom assertions
+import 'jest-dom/extend-expect';
