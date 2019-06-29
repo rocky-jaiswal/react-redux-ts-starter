@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'react-testing-library';
 
 import Dummy from '../';
 
 describe('<Dummy />', () => {
 
   test('displays without errors', () => {
-    const wrapper = shallow(
+    const { getByText } = render(
       <Dummy
         color={'red'}
       />
     );
-    expect(wrapper.find('.dummy_area').length).toEqual(1);
+    expect(getByText('dummy component')).toBeInTheDocument();
   });
 
 });
