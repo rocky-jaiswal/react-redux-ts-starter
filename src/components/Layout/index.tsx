@@ -10,19 +10,15 @@ interface Props {
 }
 
 const Layout = (props: Props) => {
-
   return (
     <div className={styles.main_container}>
-      <Header/>
+      <Header />
       <div className={styles.page}>
-        <div className={styles.main}>
-          {React.Children.toArray(props.children)}
-        </div>
+        <div className={styles.main}>{React.Children.toArray(props.children)}</div>
       </div>
       <Footer />
     </div>
   );
-
 };
 
 export default Layout;
