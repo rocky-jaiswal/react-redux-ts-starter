@@ -21,20 +21,18 @@ const mapDispatchToProps = (_dispatch: Dispatch): {} => {
 
 export const LocaleContext = React.createContext({ locale: LocaleEnum.en });
 
-class App extends React.Component<Props> {
-  render() {
-    return (
-      <LocaleContext.Provider value={{ locale: this.props.locale || LocaleEnum.en }}>
-        <LanguageProvider>
-          <Switch>
-            {Object.keys(routes).map(route => {
-              return <Route {...routes[route]} key={routes[route].sequence} />;
-            })}
-          </Switch>
-        </LanguageProvider>
-      </LocaleContext.Provider>
-    );
-  }
+const App = (props: Props) => {
+  return (
+    <LocaleContext.Provider value={{ locale: props.locale || LocaleEnum.en }}>
+      <LanguageProvider>
+        <Switch>
+          {Object.keys(routes).map(route => {
+            return <Route {...routes[route]} key={routes[route].sequence} />;
+          })}
+        </Switch>
+      </LanguageProvider>
+    </LocaleContext.Provider>
+  );
 }
 
 export default connect(

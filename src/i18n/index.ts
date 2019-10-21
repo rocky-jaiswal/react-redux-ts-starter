@@ -1,15 +1,7 @@
-import { addLocaleData } from 'react-intl';
-
-import * as enLocaleData from 'react-intl/locale-data/en';
-import * as deLocaleData from 'react-intl/locale-data/de';
-
 import enTranslationMessages from './en';
 import deTranslationMessages from './de';
 
 import { LocaleEnum } from '../constants/enums';
-
-addLocaleData(enLocaleData);
-addLocaleData(deLocaleData);
 
 const DEFAULT_LOCALE = LocaleEnum.en.toString();
 

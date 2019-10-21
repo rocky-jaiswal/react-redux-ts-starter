@@ -25,15 +25,13 @@ function mapDispatchToProps(_dispatch: Dispatch): DispatchProps {
 export const withWrapper = (WrappedComponent: any) => {
 
   // tslint:disable-next-line:no-any
-  class MainHoc extends React.Component<any, never> {
+  const MainHoc = (props: any) => {
 
-    render() {
-      return (
-        <Layout>
-          <WrappedComponent match={this.props.match} />
-        </Layout>
-      );
-    }
+    return (
+      <Layout>
+        <WrappedComponent match={props.match} />
+      </Layout>
+    );
 
   }
 

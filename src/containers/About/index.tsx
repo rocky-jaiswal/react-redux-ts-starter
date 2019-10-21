@@ -21,15 +21,13 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {};
 };
 
-export class About extends React.Component<Props & DispatchProps> {
+const About = (props: Props & DispatchProps) => {
 
-  render() {
-    return (
-      <div className="container">
-        <h1><FormattedMessage id="app.about" /></h1>
-      </div>
-    );
-  }
+  return (
+    <div className="container">
+      <h1><FormattedMessage id="app.about" /></h1>
+    </div>
+  );
 
 }
 

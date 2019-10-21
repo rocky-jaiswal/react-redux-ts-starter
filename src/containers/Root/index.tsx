@@ -36,23 +36,23 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-export class Root extends React.Component<Props & DispatchProps> {
+const Root = (props: Props & DispatchProps) => {
 
-  componentDidMount() {
+  const { loadInitialData } = props
+
+  React.useEffect(() => {
     // Uncomment to see sample XHR call
-    // this.props.loadInitialData();
-  }
+    // loadInitialData();
+  }, [loadInitialData]);
 
-  render() {
-    return (
-      <div className={styles.container}>
-        <h1><FormattedMessage id="app.welcome" /></h1>
-        <Dummy color="#96939B" />
-        <h3>{this.props.clickCount}</h3>
-        <button onClick={this.props.incrementClickCount}>Click!</button>
-      </div>
-    );
-  }
+  return (
+    <div className={styles.container}>
+      <h1><FormattedMessage id="app.welcome" /></h1>
+      <Dummy color="#96939B" />
+      <h3>{props.clickCount}</h3>
+      <button onClick={props.incrementClickCount}>Click!</button>
+    </div>
+  );
 
 }
 
