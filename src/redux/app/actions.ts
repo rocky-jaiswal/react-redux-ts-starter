@@ -1,5 +1,3 @@
-import { LocaleEnum } from '../../constants/enums'
-
 export const LOAD_INITIAL_DATA = 'app/LOAD_INITIAL_DATA'
 export const LOAD_INITIAL_DATA_INPROGRESS = 'app/LOAD_INITIAL_DATA_INPROGRESS'
 export const LOAD_INITIAL_DATA_SUCCESS = 'app/LOAD_INITIAL_DATA_SUCCESS'
@@ -37,7 +35,7 @@ export const incrementClickCount = () => {
   }
 }
 
-export const switchLanguage = (payload: LocaleEnum) => {
+export const switchLanguage = () => {
   return {
     type: SWITCH_LOCALE
   }

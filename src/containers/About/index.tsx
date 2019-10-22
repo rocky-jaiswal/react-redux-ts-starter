@@ -11,17 +11,17 @@ interface Props {
 
 interface DispatchProps {}
 
-const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
+const mapStateToProps = (state: RootStateType, _ownProps: {}): Props => {
   return {
     loading: state.app.loading
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
+const mapDispatchToProps = (_dispatch: Dispatch): DispatchProps => {
   return {}
 }
 
-const About = (props: Props & DispatchProps) => {
+const About = (_props: Props & DispatchProps) => {
   return (
     <div className="container">
       <h1>
