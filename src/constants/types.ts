@@ -1,26 +1,26 @@
-import { Dispatch as ReduxDispatch, Action } from 'redux';
-import { Immutable } from 'seamless-immutable';
-import { LocaleEnum } from './enums';
+import { Dispatch as ReduxDispatch, Action } from 'redux'
+import { Immutable } from 'seamless-immutable'
+import { LocaleEnum } from './enums'
 
 export interface AppState {
-  loading: boolean;
-  locale: LocaleEnum;
-  clickCount: number;
+  loading: boolean
+  locale: LocaleEnum
+  clickCount: number
 }
 
-export type AppStateType = Immutable<AppState>;
+export type AppStateType = Immutable<AppState>
 
 interface RootState {
-  app: AppStateType;
+  app: AppStateType
   // tslint:disable-next-line:no-any
-  router?: any;
+  router?: any
 }
 
 export type ActionType<T> = {
-  type: string;
-  payload?: T;
-};
+  type: string
+  payload?: T
+}
 
-export type RootStateType = RootState;
+export type RootStateType = RootState
 
-export type Dispatch = ReduxDispatch<Action>;
+export type Dispatch = ReduxDispatch<Action>

@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { useContext } from 'react';
-import { IntlProvider } from 'react-intl';
+import * as React from 'react'
+import { useContext } from 'react'
+import { IntlProvider } from 'react-intl'
 
-import { translationMessages } from '../../i18n/';
-import { LocaleContext } from '../../containers/App';
+import { translationMessages } from '../../i18n/'
+import { LocaleContext } from '../../containers/App'
 
 interface Props {
-  children: React.ReactElement<{}>;
+  children: React.ReactElement<{}>
 }
 
 const LanguageProvider = (props: Props) => {
-  const context = useContext(LocaleContext);
+  const context = useContext(LocaleContext)
 
   return (
     <IntlProvider
@@ -20,7 +20,7 @@ const LanguageProvider = (props: Props) => {
     >
       {React.Children.only(props.children)}
     </IntlProvider>
-  );
-};
+  )
+}
 
-export default LanguageProvider;
+export default LanguageProvider
