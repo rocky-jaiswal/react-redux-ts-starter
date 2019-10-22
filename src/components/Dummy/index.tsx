@@ -1,20 +1,17 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import styles from './styles.module.scss';
+import styles from './styles.module.scss'
 
 interface Props {
-  color: string;
+  color: string
 }
 
 const Dummy = (props: Props) => {
   return (
-    <div
-      className={styles.dummy_area}
-      style={{ backgroundColor: props.color }}
-    >
+    <div className={styles.dummy_area} style={{ backgroundColor: props.color }}>
       <span>dummy component</span>
     </div>
-  );
-};
+  )
+}
 
-export default Dummy;
+export default Dummy

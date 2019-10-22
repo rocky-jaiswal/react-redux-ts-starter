@@ -1,12 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import Footer from '../Footer';
-import Header from '../Header';
+import Footer from '../Footer'
+import Header from '../Header'
 
-import styles from './styles.module.scss';
+import styles from './styles.module.scss'
 
 interface Props {
-  children?: React.ReactElement<{}>;
+  children?: React.ReactElement<{}>
 }
 
 const Layout = (props: Props) => {
@@ -14,11 +14,13 @@ const Layout = (props: Props) => {
     <div className={styles.main_container}>
       <Header />
       <div className={styles.page}>
-        <div className={styles.main}>{React.Children.toArray(props.children)}</div>
+        <div className={styles.main}>
+          {React.Children.toArray(props.children)}
+        </div>
       </div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

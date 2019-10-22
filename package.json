@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*' --ignore-pattern 'src/**/*.scss' --ignore-pattern 'src/**/*.css'",
+    "prettier": "prettier --write 'src/**/*'"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.2",
@@ -31,17 +33,22 @@
     "@types/react": "^16.7.8",
     "@types/react-dom": "^16.0.11",
     "@types/react-intl": "^3.0.0",
-    "@types/react-loadable": "^5.4.2",
     "@types/react-redux": "^7.0.0",
     "@types/react-router": "^5.0.0",
     "@types/react-router-dom": "^5.0.0",
     "@types/react-router-redux": "^5.0.16",
     "@types/seamless-immutable": "^7.1.4",
     "node-sass": "^4.10.0",
+    "prettier": "^1.18.2",
     "redux-devtools-extension": "^2.13.7",
-    "tslint": "^5.11.0",
-    "tslint-react": "^4.0.0",
     "typescript": "^3.3.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [

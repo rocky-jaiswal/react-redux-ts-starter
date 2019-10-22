@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
+import * as React from 'react'
+import { Link } from 'react-router-dom'
 
-import styles from './styles.module.scss';
+import styles from './styles.module.scss'
 
 const Header = (_props: {}) => {
   return (
@@ -9,7 +9,7 @@ const Header = (_props: {}) => {
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
