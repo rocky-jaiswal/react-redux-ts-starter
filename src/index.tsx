@@ -19,7 +19,9 @@ ReactDOM.render(
   // tslint:disable-next-line:jsx-wrap-multiline
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root') as HTMLElement

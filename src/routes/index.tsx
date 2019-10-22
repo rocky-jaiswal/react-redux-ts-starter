@@ -1,19 +1,5 @@
-import * as React from 'react';
-import Loadable from 'react-loadable';
-
-const Loading = () => (
-  <p>Loading...</p>
-);
-
-const Root = Loadable({
-  loader: () => import('../containers/Root'),
-  loading: Loading
-});
-
-const About = Loadable({
-  loader: () => import('../containers/About'),
-  loading: Loading
-});
+import Root from '../containers/Root';
+import About from '../containers/About';
 
 interface RouteDefinition {
   sequence: number;
