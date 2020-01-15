@@ -2,15 +2,15 @@ import Root from '../containers/Root'
 import About from '../containers/About'
 
 interface RouteDefinition {
-  sequence: number;
-  exact: boolean;
-  path: string;
+  sequence: number
+  exact: boolean
+  path: string
   // tslint:disable-next-line:no-any
-  component: any;
+  component: any
 }
 
 interface Routes {
-  [propName: string]: RouteDefinition;
+  [propName: string]: RouteDefinition
 }
 
 const routes: Routes = {
@@ -26,6 +26,6 @@ const routes: Routes = {
     exact: true,
     path: '/about'
   }
-};
+}
 
-export default routes;
+export default routes

@@ -1,5 +1,3 @@
-import loadInitialDataWatcher from './loadInitialData';
+import loadInitialDataWatcher from './loadInitialData'
 
-export default [
-  loadInitialDataWatcher
-];
+export default [loadInitialDataWatcher]
