@@ -7,12 +7,11 @@ import { LocaleEnum } from '../../constants/enums'
 export const istate: AppState = {
   locale: LocaleEnum.en,
   loading: false,
-  clickCount: 0
+  clickCount: 0,
 }
 
 export const initialState = Immutable.from(istate)
 
-// tslint:disable-next-line:no-any
 const appReducer = (
   state = initialState,
   action: ActionType<any>

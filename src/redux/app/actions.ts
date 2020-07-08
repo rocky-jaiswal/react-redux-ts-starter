@@ -7,36 +7,36 @@ export const SWITCH_LOCALE = 'app/SWITCH_LOCALE'
 
 export const loadInitialData = () => {
   return {
-    type: LOAD_INITIAL_DATA
+    type: LOAD_INITIAL_DATA,
   }
 }
 
 export const loadInitialDataInProgress = () => {
   return {
-    type: LOAD_INITIAL_DATA_INPROGRESS
+    type: LOAD_INITIAL_DATA_INPROGRESS,
   }
 }
 
 export const loadInitialDataSuccess = () => {
   return {
-    type: LOAD_INITIAL_DATA_SUCCESS
+    type: LOAD_INITIAL_DATA_SUCCESS,
   }
 }
 
 export const loadInitialDataFailed = () => {
   return {
-    type: LOAD_INITIAL_DATA_FAILED
+    type: LOAD_INITIAL_DATA_FAILED,
   }
 }
 
 export const incrementClickCount = () => {
   return {
-    type: INC_CLICK_COUNT
+    type: INC_CLICK_COUNT,
   }
 }
 
 export const switchLanguage = () => {
   return {
-    type: SWITCH_LOCALE
+    type: SWITCH_LOCALE,
   }
 }

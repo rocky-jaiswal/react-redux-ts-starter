@@ -5,7 +5,6 @@ interface RouteDefinition {
   sequence: number
   exact: boolean
   path: string
-  // tslint:disable-next-line:no-any
   component: any
 }
 
@@ -18,14 +17,14 @@ const routes: Routes = {
     sequence: 1,
     component: Root,
     exact: true,
-    path: '/'
+    path: '/',
   },
   about: {
     sequence: 2,
     component: About,
     exact: true,
-    path: '/about'
-  }
+    path: '/about',
+  },
 }
 
 export default routes

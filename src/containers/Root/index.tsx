@@ -24,7 +24,7 @@ interface DispatchProps {
 const mapStateToProps = (state: RootStateType, _ownProps: {}): Props => {
   return {
     loading: state.app.loading,
-    clickCount: state.app.clickCount
+    clickCount: state.app.clickCount,
   }
 }
 
@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     loadInitialData: () => dispatch(loadInitialData()),
     changeRoute: (payload: string) => dispatch(push(payload)),
-    incrementClickCount: () => dispatch(incrementClickCount())
+    incrementClickCount: () => dispatch(incrementClickCount()),
   }
 }
 
@@ -56,9 +56,4 @@ const Root = (props: Props & DispatchProps) => {
   )
 }
 
-export default withWrapper(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Root)
-)
+export default withWrapper(connect(mapStateToProps, mapDispatchToProps)(Root))

@@ -12,7 +12,6 @@ export type AppStateType = Immutable<AppState>
 
 interface RootState {
   app: AppStateType
-  // tslint:disable-next-line:no-any
   router?: any
 }
 

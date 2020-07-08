@@ -19,7 +19,6 @@ export const formatTranslationMessages = (
         ? defaultFormattedMessages[key]
         : messages[key]
     return Object.assign(formattedMessages, { [key]: formattedMessage })
-    // tslint:disable-next-line:align
   }, {})
 }
 
@@ -28,5 +27,8 @@ export const translationMessages: any = {
     LocaleEnum.en.toString(),
     enTranslationMessages
   ),
-  de: formatTranslationMessages(LocaleEnum.de.toString(), deTranslationMessages)
+  de: formatTranslationMessages(
+    LocaleEnum.de.toString(),
+    deTranslationMessages
+  ),
 }

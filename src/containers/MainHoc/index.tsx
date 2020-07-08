@@ -8,10 +8,9 @@ interface StateProps {}
 
 interface DispatchProps {}
 
-// tslint:disable-next-line:no-any
 function mapStateToProps(_state: RootStateType, ownProps: any): StateProps {
   return {
-    ...ownProps
+    ...ownProps,
   }
 }
 
@@ -19,9 +18,7 @@ function mapDispatchToProps(_dispatch: Dispatch): DispatchProps {
   return {}
 }
 
-// tslint:disable-next-line:no-any
 export const withWrapper = (WrappedComponent: any) => {
-  // tslint:disable-next-line:no-any
   const MainHoc = (props: any) => {
     return (
       <Layout>
@@ -30,8 +27,5 @@ export const withWrapper = (WrappedComponent: any) => {
     )
   }
 
-  return connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MainHoc)
+  return connect(mapStateToProps, mapDispatchToProps)(MainHoc)
 }

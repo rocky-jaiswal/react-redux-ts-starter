@@ -16,7 +16,6 @@ const history = createBrowserHistory()
 const store = configureStore(history)
 
 ReactDOM.render(
-  // tslint:disable-next-line:jsx-wrap-multiline
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <React.StrictMode>
