@@ -11,8 +11,8 @@ Please see the scripts in package.json file to kickstart your development.
 - SASS : Styling / Theming
 - React-Router : Routing
 - React-Intl : i18n
-- React-Toolkit-Query : Backend communication (REST / GraphQL)
-- Authentication : Can be done with redux toolkit
+- Redux-Toolkit-Query : Backend communication (REST / GraphQL)
+- Authentication : Can be done with Redux-Toolkit-Query
 - Eslint
 - Editor setup (Prettier + Editor Config)
 - RTL - Unit testing
