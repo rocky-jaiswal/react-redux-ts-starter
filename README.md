@@ -31,3 +31,5 @@ Please see the scripts in package.json file to kickstart your development.
 # Develop
 
 - Like all CRA apps - `yarn && yarn start`
+
+[![CircleCI](https://circleci.com/gh/rocky-jaiswal/react-redux-ts-starter/tree/master.svg?style=svg)](https://circleci.com/gh/rocky-jaiswal/react-redux-ts-starter/tree/master)

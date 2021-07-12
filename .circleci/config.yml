@@ -2,7 +2,7 @@ version: 2
 
 workflows:
   version: 2
-  build_and_deploy:
+  test_build_and_deploy:
     jobs:
       - test
       - build:
