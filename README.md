@@ -18,12 +18,12 @@ Please see the scripts in package.json file to kickstart your development.
 - RTL - Unit testing
 - Environment based configuration - dotenv
 - Building - done by CRA scripts
+- CircleCI - test & build
 
 # To Be done
 
 - Form validation
 - Cypress for Integration testing
-- CI / CD for CircleCI
 - Deployment (S3 + CDN)
 - Protection (CDN / Web Firewall)
 - Error reporting (Sentry)

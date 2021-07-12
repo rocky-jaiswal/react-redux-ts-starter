@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*' --ignore-pattern 'src/**/*.scss' --ignore-pattern 'src/**/*.css'",
+    "lint": "eslint 'src/**/*' --ignore-pattern 'src/**/*.scss' --ignore-pattern 'src/**/*.css'  --ignore-pattern 'src/i18n/*.json'",
     "prettier": "prettier --write 'src/**/*'"
   },
   "devDependencies": {
