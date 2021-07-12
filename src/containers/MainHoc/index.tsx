@@ -1,31 +1,20 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import Layout from '../../components/Layout'
-import { RootStateType, Dispatch } from '../../constants/types'
+import { LocaleEnum } from '../../constants/enums'
 
-interface StateProps {}
+import { switchLocale } from '../../redux/app'
 
-interface DispatchProps {}
+export const withLayout = (WrappedComponent: () => JSX.Element) => {
+  const MainHoc = () => {
+    const dispatch = useDispatch()
 
-function mapStateToProps(_state: RootStateType, ownProps: any): StateProps {
-  return {
-    ...ownProps,
-  }
-}
-
-function mapDispatchToProps(_dispatch: Dispatch): DispatchProps {
-  return {}
-}
-
-export const withWrapper = (WrappedComponent: any) => {
-  const MainHoc = (props: any) => {
     return (
-      <Layout>
-        <WrappedComponent match={props.match} />
+      <Layout switchLocale={(payload: LocaleEnum) => dispatch(switchLocale(payload))}>
+        <WrappedComponent />
       </Layout>
     )
   }
 
-  return connect(mapStateToProps, mapDispatchToProps)(MainHoc)
+  return MainHoc
 }

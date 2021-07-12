@@ -1,34 +1,23 @@
-import enTranslationMessages from './en'
-import deTranslationMessages from './de'
+import { useIntl } from 'react-intl'
 
+import en from './en.json'
 import { LocaleEnum } from '../constants/enums'
 
-const DEFAULT_LOCALE = LocaleEnum.en.toString()
+export type LocaleMessages = typeof en
+export type LocaleKey = keyof LocaleMessages
 
-export const formatTranslationMessages = (
-  locale: string,
-  messages: any
-): {} => {
-  const defaultFormattedMessages: any =
-    locale !== DEFAULT_LOCALE
-      ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages)
-      : {}
-  return Object.keys(messages).reduce((formattedMessages, key) => {
-    const formattedMessage =
-      !messages[key] && locale !== DEFAULT_LOCALE
-        ? defaultFormattedMessages[key]
-        : messages[key]
-    return Object.assign(formattedMessages, { [key]: formattedMessage })
-  }, {})
+export function useFormatMessage(): (id: LocaleKey) => string {
+  const intl = useIntl()
+  return (id) => intl.formatMessage({ id })
 }
 
-export const translationMessages: any = {
-  en: formatTranslationMessages(
-    LocaleEnum.en.toString(),
-    enTranslationMessages
-  ),
-  de: formatTranslationMessages(
-    LocaleEnum.de.toString(),
-    deTranslationMessages
-  ),
+export function importMessages(locale: LocaleEnum) {
+  switch (locale) {
+    case 'en':
+      return import('./en.json')
+    case 'de':
+      return import('./de.json')
+    default:
+      return Promise.resolve({ default: en })
+  }
 }

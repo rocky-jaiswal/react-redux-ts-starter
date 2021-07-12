@@ -1,21 +1,21 @@
 import axios from 'axios'
 
-import Config from '../config'
+export const baseUrl = process.env.REACT_APP_BASE_URL
 
 const AppAPI = {
   init() {
     return axios.create({
       headers: {
         common: {
-          Authorization: sessionStorage.getItem('jwtToken') || ''
-        }
-      }
+          Authorization: sessionStorage.getItem('jwtToken') || '',
+        },
+      },
     })
   },
 
   async loadInitialData() {
-    return await AppAPI.init().get(Config.env.baseURL + '/data')
-  }
+    return await AppAPI.init().get(baseUrl + '/data')
+  },
 }
 
 export default AppAPI

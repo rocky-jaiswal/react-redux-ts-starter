@@ -1,41 +1,34 @@
 import * as React from 'react'
+import { IntlProvider } from 'react-intl'
 import { Route, Switch } from 'react-router'
-import { connect } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-import { LocaleEnum } from '../../constants/enums'
-import { Dispatch, RootStateType } from '../../constants/types'
+import { importMessages } from '../../i18n'
+import { RootState } from '../../constants/types'
+
+import en from '../../i18n/en.json' // default to english
 import routes from '../../routes'
-import LanguageProvider from '../../components/LanguageProvider'
 
-interface Props {
-  locale?: LocaleEnum
-}
+const App = () => {
+  const locale = useSelector((state: RootState) => state.app.lang)
 
-const mapStateToProps = (rootState: RootStateType, _ownProps: {}): Props => ({
-  locale: rootState.app.locale
-})
+  const [messages, setMessages] = React.useState(en)
+  React.useEffect(() => {
+    importMessages(locale).then((msgs) => setMessages(msgs.default))
+  }, [locale])
 
-const mapDispatchToProps = (_dispatch: Dispatch): {} => {
-  return {}
-}
-
-export const LocaleContext = React.createContext({ locale: LocaleEnum.en })
-
-const App = (props: Props) => {
   return (
-    <LocaleContext.Provider value={{ locale: props.locale || LocaleEnum.en }}>
-      <LanguageProvider>
+    <IntlProvider locale={locale} messages={messages}>
+      <BrowserRouter>
         <Switch>
-          {Object.keys(routes).map(route => {
+          {Object.keys(routes).map((route) => {
             return <Route {...routes[route]} key={routes[route].sequence} />
           })}
         </Switch>
-      </LanguageProvider>
-    </LocaleContext.Provider>
+      </BrowserRouter>
+    </IntlProvider>
   )
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default App

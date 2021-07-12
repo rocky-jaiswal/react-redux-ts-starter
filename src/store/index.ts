@@ -1,24 +1,27 @@
-import { routerMiddleware } from 'connected-react-router'
-import { applyMiddleware, createStore, Store } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 
-import { RootStateType } from '../constants/types'
-import { createReducer, reduxInitialState } from '../redux'
+import pokemonApi from '../api/pokemon'
+import appReducer from '../redux/app'
 import allSagas from '../sagas'
 
-const sagaMiddleware = createSagaMiddleware()
+export const setupStore = () => {
+  const sagaMiddleware = createSagaMiddleware()
 
-export function configureStore(history: any): Store<RootStateType> {
-  const middlewares = [sagaMiddleware, routerMiddleware(history)]
-
-  const store = createStore<RootStateType, { type: any }, {}, {}>(
-    createReducer(history),
-    reduxInitialState,
-    composeWithDevTools(applyMiddleware(...middlewares))
-  )
+  const store = configureStore({
+    reducer: {
+      app: appReducer,
+      [pokemonApi.reducerPath]: pokemonApi.reducer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware).concat(pokemonApi.middleware),
+  })
 
   allSagas.map((saga) => sagaMiddleware.run(saga))
-
   return store
 }
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+// export type RootState = ReturnType<typeof setupStore>
+
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+// export type AppDispatch = typeof store.dispatch

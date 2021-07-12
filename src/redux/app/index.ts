@@ -1,31 +1,28 @@
-import Immutable from 'seamless-immutable'
-
-import { AppStateType, AppState, ActionType } from '../../constants/types'
-import { INC_CLICK_COUNT, SWITCH_LOCALE } from './actions'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { LocaleEnum } from '../../constants/enums'
+import { AppState } from '../../constants/types'
 
-export const istate: AppState = {
-  locale: LocaleEnum.en,
-  loading: false,
-  clickCount: 0,
-}
+const initialState: AppState = { counter: 0, lang: LocaleEnum.en }
 
-export const initialState = Immutable.from(istate)
+export const appSlice = createSlice({
+  name: 'app',
+  initialState,
+  reducers: {
+    increment: (state) => {
+      state.counter += 1
+    },
+    decrement: (state) => {
+      state.counter -= 1
+    },
+    incrementByAmount: (state, action: PayloadAction<number>) => {
+      state.counter += action.payload
+    },
+    switchLocale: (state, action: PayloadAction<LocaleEnum>) => {
+      state.lang = action.payload
+    },
+  },
+})
 
-const appReducer = (
-  state = initialState,
-  action: ActionType<any>
-): AppStateType => {
-  switch (action.type) {
-    default:
-      return state
-
-    case INC_CLICK_COUNT:
-      return state.set('clickCount', state.clickCount + 1)
-
-    case SWITCH_LOCALE:
-      return state.set('locale', action.payload)
-  }
-}
-
-export default appReducer
+// Action creators are generated for each case reducer function
+export const { increment, decrement, incrementByAmount, switchLocale } = appSlice.actions
+export default appSlice.reducer

@@ -1,59 +1,35 @@
-import * as React from 'react'
-import { FormattedMessage } from 'react-intl'
-import { connect } from 'react-redux'
-import { push } from 'connected-react-router'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { Dispatch, RootStateType } from '../../constants/types'
-import { loadInitialData, incrementClickCount } from '../../redux/app/actions'
-import { withWrapper } from '../MainHoc'
+import { withLayout } from '../MainHoc'
+import { useFormatMessage } from '../../i18n'
+
+import { RootState } from '../../constants/types'
+import { increment } from '../../redux/app'
+import pokemonApi from '../../api/pokemon'
+
 import Dummy from '../../components/Dummy'
+import LoadingSpinner from '../../components/LoadingSpinner'
 
 import styles from './styles.module.scss'
 
-interface Props {
-  loading: boolean
-  clickCount: number
-}
+const Root = () => {
+  const counter = useSelector((state: RootState) => state.app.counter)
+  const dispatch = useDispatch()
+  const formatMessage = useFormatMessage()
 
-interface DispatchProps {
-  changeRoute(route: string): {}
-  loadInitialData(): {}
-  incrementClickCount(): {}
-}
-
-const mapStateToProps = (state: RootStateType, _ownProps: {}): Props => {
-  return {
-    loading: state.app.loading,
-    clickCount: state.app.clickCount,
-  }
-}
-
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
-  return {
-    loadInitialData: () => dispatch(loadInitialData()),
-    changeRoute: (payload: string) => dispatch(push(payload)),
-    incrementClickCount: () => dispatch(incrementClickCount()),
-  }
-}
-
-const Root = (props: Props & DispatchProps) => {
-  const { loadInitialData } = props
-
-  React.useEffect(() => {
-    // Uncomment to see sample XHR call
-    // loadInitialData();
-  }, [loadInitialData])
+  const { data, error, isLoading } = pokemonApi.endpoints.getPokemonByName.useQuery('bulbasaur')
 
   return (
     <div className={styles.container}>
-      <h1>
-        <FormattedMessage id="app.welcome" />
-      </h1>
+      <h1>{formatMessage('app.welcome')}</h1>
+      {isLoading && <LoadingSpinner />}
+      {!isLoading && error && <p>Error!</p>}
+      {!isLoading && data && <img src={data.sprites.front_default} alt={'Pokemon'} />}
       <Dummy color="#96939B" />
-      <h3>{props.clickCount}</h3>
-      <button onClick={props.incrementClickCount}>Click!</button>
+      <h3>{counter}</h3>
+      <button onClick={() => dispatch(increment())}>Click!</button>
     </div>
   )
 }
 
-export default withWrapper(connect(mapStateToProps, mapDispatchToProps)(Root))
+export default withLayout(Root)

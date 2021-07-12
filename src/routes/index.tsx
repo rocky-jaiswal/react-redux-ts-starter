@@ -5,7 +5,7 @@ interface RouteDefinition {
   sequence: number
   exact: boolean
   path: string
-  component: any
+  component: () => JSX.Element
 }
 
 interface Routes {
