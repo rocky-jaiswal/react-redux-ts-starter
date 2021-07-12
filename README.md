@@ -27,3 +27,7 @@ Please see the scripts in package.json file to kickstart your development.
 - Deployment (S3 + CDN)
 - Protection (CDN / Web Firewall)
 - Error reporting (Sentry)
+
+# Develop
+
+- Like all CRA apps - `yarn && yarn start`
