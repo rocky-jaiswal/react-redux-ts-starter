@@ -8,6 +8,9 @@ workflows:
       - build:
           requires:
             - test
+      - deploy:
+          requires:
+            - build
 
 jobs:
   test:
@@ -37,3 +40,10 @@ jobs:
             - node_modules
           key: v1-deps-{{ checksum "package.json" }}
       - run: yarn build
+  deploy:
+    docker:
+      - image: circleci/python:3.9.4
+    steps:
+      - run: git clone https://github.com/rocky-jaiswal/static-site-cdk.git
+      - run: pip install --user poetry
+      - run: poetry install
