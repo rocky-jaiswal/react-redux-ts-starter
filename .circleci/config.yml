@@ -40,6 +40,10 @@ jobs:
             - node_modules
           key: v1-deps-{{ checksum "package.json" }}
       - run: yarn build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - build
   deploy:
     docker:
       - image: circleci/python:3.9.4
@@ -47,4 +51,7 @@ jobs:
       - run: git clone https://github.com/rocky-jaiswal/static-site-cdk.git
       - run: pip install --user poetry
       - run: cd static-site-cdk && poetry install
-      - run: pwd
+      - run: cd static-site-cdk && rm -rf site-contents/v0
+      - attach_workspace:
+          at: ./build
+      - run: ls -lR .
