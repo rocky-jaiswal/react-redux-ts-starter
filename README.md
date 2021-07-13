@@ -19,12 +19,12 @@ Please see the scripts in package.json file to kickstart your development.
 - Environment based configuration - dotenv
 - Building - done by CRA scripts
 - CircleCI - test & build
+- Deployment (S3 + CDN)
 
 # To Be done
 
 - Form validation
 - Cypress for Integration testing
-- Deployment (S3 + CDN)
 - Protection (CDN / Web Firewall)
 - Error reporting (Sentry)
 
