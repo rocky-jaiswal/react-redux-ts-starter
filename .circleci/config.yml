@@ -67,6 +67,7 @@ jobs:
       - run: mkdir downloads && cd downloads && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
       - run: cd downloads && sudo ./aws/install
       - run: pip install --user poetry
+      - run: cd static-site-cdk && poetry config virtualenvs.create false --local
       - run: cd static-site-cdk && poetry install
-      - run: cd ~/project/static-site-cdk && source`poetry env info --path`/bin/activate && cdk synth
+      - run: cd static-site-cdk && cdk synth
       - run: rm -rf ~/.aws/credentials
