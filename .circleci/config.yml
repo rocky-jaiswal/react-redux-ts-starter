@@ -51,7 +51,7 @@ jobs:
       - run: git clone https://github.com/rocky-jaiswal/static-site-cdk.git
       - run: pip install --user poetry
       - run: cd static-site-cdk && poetry install
-      - run: cd static-site-cdk && rm -rf site-contents/v0 && mkdir -p site-contents/v0
+      - run: cd static-site-cdk && rm -rf site-contents/ && mkdir -p site-contents
       - attach_workspace:
           at: ./build
       - run: cp -R ./build/build/* ./static-site-cdk/site-contents/
@@ -67,5 +67,5 @@ jobs:
       - run: echo "aws_secret_access_key = ${AWS_SECRET}" >> ~/.aws/credentials
       - run: mkdir downloads && cd downloads && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
       - run: cd downloads && sudo sudo ./aws/install
-      - run: cd ~/static-site-cdk && cdk synth
+      - run: cd ~/project/static-site-cdk && cdk synth
       - run: rm -rf ~/.aws/credentials
