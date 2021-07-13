@@ -54,6 +54,17 @@ jobs:
       - run: cd static-site-cdk && rm -rf site-contents/v0 && mkdir -p site-contents/v0
       - attach_workspace:
           at: ./build
-      - run: cp -R ./build/build/* ./static-site-cdk/site-contents/v0/
+      - run: cp -R ./build/build/* ./static-site-cdk/site-contents/
       - run: sudo apt-get update && sudo apt-get install nodejs npm
       - run: sudo npm install -g aws-cdk
+      - run: touch ~/.aws/config
+      - run: touch ~/.aws/credentials
+      - run: echo "[default]" > ~/.aws/config
+      - run: echo "region = eu-central-1" >> ~/.aws/config
+      - run: echo "[default]" > ~/.aws/credentials
+      - run: echo "aws_access_key_id = ${AWS_KEY}" >> ~/.aws/credentials
+      - run: echo "aws_secret_access_key = ${AWS_SECRET}" >> ~/.aws/credentials
+      - run: mkdir downloads && cd downloads && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
+      - run: cd downloads && sudo sudo ./aws/install
+      - run: cd ~/static-site-cdk && cdk synth
+      - run: rm -rf ~/.aws/credentials
