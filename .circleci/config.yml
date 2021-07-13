@@ -57,6 +57,7 @@ jobs:
       - run: cp -R ./build/build/* ./static-site-cdk/site-contents/
       - run: sudo apt-get update && sudo apt-get install nodejs npm
       - run: sudo npm install -g aws-cdk
+      - run: mkdir -p ~/.aws
       - run: touch ~/.aws/config
       - run: touch ~/.aws/credentials
       - run: echo "[default]" > ~/.aws/config
