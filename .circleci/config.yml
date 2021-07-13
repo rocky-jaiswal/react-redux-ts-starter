@@ -55,5 +55,5 @@ jobs:
       - attach_workspace:
           at: ./build
       - run: cp -R ./build/build/* ./static-site-cdk/site-contents/v0/
-      - run: sudo apt-get update && sudo apt-get install nodejs
-      - run: sudo npm install -g cdk
+      - run: sudo apt-get update && sudo apt-get install nodejs npm
+      - run: sudo npm install -g aws-cdk
