@@ -49,6 +49,8 @@ jobs:
       - image: circleci/python:3.9.4
     steps:
       - run: git clone https://github.com/rocky-jaiswal/static-site-cdk.git
+      - run: sudo apt-get update && sudo apt-get install nodejs npm
+      - run: sudo npm install -g aws-cdk
       - run: pip install --user poetry
       - run: cd static-site-cdk && poetry install
       - run: cd static-site-cdk && rm -rf site-contents/
@@ -56,8 +58,6 @@ jobs:
       - attach_workspace:
           at: ./build
       - run: cp -R ./build/build/* ./static-site-cdk/site-contents/
-      - run: sudo apt-get update && sudo apt-get install nodejs npm
-      - run: sudo npm install -g aws-cdk
       - run: mkdir -p ~/.aws
       - run: touch ~/.aws/config
       - run: touch ~/.aws/credentials
@@ -68,5 +68,5 @@ jobs:
       - run: echo "aws_secret_access_key = ${AWS_SECRET}" >> ~/.aws/credentials
       - run: mkdir downloads && cd downloads && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
       - run: cd downloads && sudo ./aws/install
-      - run: cd ~/project/static-site-cdk && cdk synth
+      - run: cd ~/project/static-site-cdk && poetry shell && cdk synth
       - run: rm -rf ~/.aws/credentials
