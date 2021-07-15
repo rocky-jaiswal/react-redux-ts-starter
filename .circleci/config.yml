@@ -47,6 +47,10 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:3.9.4
+    environment:
+      DOMAIN: praywithus.site
+      AWS_ACCOUNT_ID: 750324395434
+      AWS_REGION: eu-central-1
     steps:
       # Packages
       - run: git clone https://github.com/rocky-jaiswal/static-site-cdk.git
@@ -63,7 +67,7 @@ jobs:
       - run: touch ~/.aws/config
       - run: touch ~/.aws/credentials
       - run: echo "[default]" > ~/.aws/config
-      - run: echo "region = eu-central-1" >> ~/.aws/config
+      - run: echo "region = ${AWS_REGION}" >> ~/.aws/config
       - run: echo "[default]" > ~/.aws/credentials
       - run: echo "aws_access_key_id = ${AWS_KEY}" >> ~/.aws/credentials
       - run: echo "aws_secret_access_key = ${AWS_SECRET}" >> ~/.aws/credentials
@@ -73,6 +77,10 @@ jobs:
       - run: pip install --user poetry
       - run: cd static-site-cdk && poetry config virtualenvs.create false --local
       - run: cd static-site-cdk && poetry install
-      - run: cd static-site-cdk && cdk synth
-      - run: cd static-site-cdk && cdk deploy --require-approval never
+      - run:
+          name: Synth
+          command: cd static-site-cdk && cdk synth
+      - run:
+          name: Deploy
+          command: cd static-site-cdk && cdk deploy --require-approval never
       - run: rm -rf ~/.aws/credentials
